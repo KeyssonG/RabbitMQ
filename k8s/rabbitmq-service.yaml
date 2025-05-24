@@ -7,11 +7,11 @@ spec:
     app: rabbitmq
   ports:
     - protocol: TCP
-      port: 5672      
-      targetPort: 5672
-      nodePort: 31672  
+      port: 5672         # Porta pública AMQP
+      targetPort: 5672   # Porta no container
+      name: amqp
     - protocol: TCP
-      port: 15672      
-      targetPort: 15672
-      nodePort: 31673  
-  type: LoadBalancer       
+      port: 15672        # Porta pública Painel Web
+      targetPort: 15672  # Porta no container
+      name: dashboard
+  type: LoadBalancer
